@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouba - Cestovatelské fotografie</title>
+    <style>
+        /* CSS pro retro styl a responzivní design */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4e4bc;
+            color: #3c2f2f;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #8b5e3c;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 5px solid #3c2f2f;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #f4e4bc;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 4px solid #3c2f2f;
+            transition: transform 0.3s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .gallery img.loaded {
+            opacity: 1;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: #8b5e3c;
+            color: #f4e4bc;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 5px solid #3c2f2f;
+        }
+
+        footer p {
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        /* Responzivní design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                padding: 1rem;
+            }
+
+            .gallery img {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .gallery img {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bouba</h1>
+    </header>
+
+    <section class="gallery">
+        <img src="plamenak.jpg" alt="Plamenák" loading="lazy">
+        <img src="motyl1.jpg" alt="Motýl 1" loading="lazy">
+        <img src="motyl2.jpg" alt="Motýl 2" loading="lazy">
+        <img src="motyl3.jpg" alt="Motýl 3" loading="lazy">
+        <img src="motyl4.jpg" alt="Motýl 4" loading="lazy">
+        <img src="hmyz.jpg" alt="Hmyz" loading="lazy">
+        <img src="hroch.jpg" alt="Hroch" loading="lazy">
+        <img src="slon.jpg" alt="Slon" loading="lazy">
+        <img src="sova.jpg" alt="Sova" loading="lazy">
+        <img src="lev.jpg" alt="Lev" loading="lazy">
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Bouba - Cestovatelské fotografie</p>
+    </footer>
+
+    <script>
+        // JavaScript pro fade-in efekt při načítání obrázků
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.gallery img');
+            images.forEach((img, index) => {
+                setTimeout(() => {
+                    img.classList.add('loaded');
+                }, index * 200); // Zpoždění pro každou fotku
+            });
+        });
+    </script>
+</body>
+</html>
